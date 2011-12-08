@@ -1,0 +1,8 @@
+Just a collection of tools used in ubuntu for building ARM devices and ARM rootfs...
+
+Useful for:
+Building Linux Kernel, U-Boot
+Running ubuntu's rootstock on a non ubuntu system...
+
+cross-gcc: gcc-linaro-4.6-2011.09-1
+qemu: qemu-linaro-0.15.91-2011.11

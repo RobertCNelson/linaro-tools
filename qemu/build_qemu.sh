@@ -27,60 +27,38 @@ unset SUB_DATE
 DIR=$PWD
 TEMPDIR=$(mktemp -d)
 
-LINARO_VER="2011.11"
-QEMU_VER="0.15.91"
+#LINARO_VER="2011.11"
+#QEMU_VER="0.15.91"
 
-#looking for: vexpress-a9
 #LINARO_VER="2011.10"
 #QEMU_VER="0.15.50"
 #DISABLE_WERROR="--disable-werror"
-#export CC=gcc-4.5
 
 #looking for: vexpress-a9
 #LINARO_VER="2011.09"
 #QEMU_VER="0.15.50"
 #DISABLE_WERROR="--disable-werror"
-#export CC=gcc-4.5
 
 #looking for: vexpress-a9
 #LINARO_VER="2011.08"
 #QEMU_VER="0.15.50"
 #DISABLE_WERROR="--disable-werror"
-#export CC=gcc-4.5
 
-#looking for: vexpress-a9
 #LINARO_VER="2011.07"
 #SUB_VER="-0"
 #QEMU_VER="0.14.50"
 #DISABLE_WERROR="--disable-werror"
-#export CC=gcc-4.5
 
-#looking for: vexpress-a9
 #LINARO_VER="2011.06"
 #SUB_VER="-0"
 #QEMU_VER="0.14.50"
 #DISABLE_WERROR="--disable-werror"
-#export CC=gcc-4.5
 
-#LINARO_VER="2011.04"
-#SUB_VER="-1"
-#SUB_DATE="${SUB_VER}"
-#QEMU_VER="0.14.50"
-#DISABLE_WERROR="--disable-werror"
-#export CC=gcc-4.5
-
-#LINARO_VER="2011.04"
-#SUB_VER="-0"
-#QEMU_VER="0.14.50"
-#DISABLE_WERROR="--disable-werror"
-#export CC=gcc-4.5
-
-#LINARO_VER="2011.03"
-#SUB_VER="-1"
-#SUB_DATE="${SUB_VER}"
-#QEMU_VER="0.14.50"
-#DISABLE_WERROR="--disable-werror"
-#export CC=gcc-4.5
+LINARO_VER="2011.04"
+SUB_VER="-1"
+SUB_DATE="${SUB_VER}"
+QEMU_VER="0.14.50"
+DISABLE_WERROR="--disable-werror"
 
 mkdir -p ${DIR}/dl/
 
@@ -99,21 +77,31 @@ function extract_qemu {
  tar xf ${DIR}/dl/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}.tar.gz -C ${DIR}/qemu-build/
 }
 
-function build_qemu {
- cd ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}
- ./configure --prefix=/usr --target-list=arm-softmmu ${DISABLE_WERROR}
+function build_user {
+ mkdir -p  ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}/user-build
+ cd ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}/user-build
+ ../configure --prefix=/usr --disable-blobs --disable-strip --disable-system --target-list=arm-linux-user
  make
  cd ${DIR}
 }
 
-function install_qemu {
- cd ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}
+function build_user_static {
+ mkdir -p  ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}/user-static-build
+ cd ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}/user-static-build
+ ../configure --prefix=/usr --disable-blobs --disable-strip --disable-system --static --target-list=arm-linux-user
+ make
+ cd ${DIR}
+}
+
+function install_qemu_static {
+ cd ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}/user-static-build
  sudo make install
+ sudo ln -s /usr/bin/qemu-arm /usr/bin/qemu-arm-static
  cd ${DIR}
 }
 
 dl_qemu
 extract_qemu
-build_qemu
-install_qemu
+build_user_static
+install_qemu_static
 

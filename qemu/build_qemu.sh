@@ -58,4 +58,5 @@ function install_qemu {
 dl_qemu
 extract_qemu
 build_qemu
+install_qemu
 

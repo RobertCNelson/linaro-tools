@@ -23,7 +23,8 @@
 DIR=$PWD
 TEMPDIR=$(mktemp -d)
 
-LINARO="qemu-linaro-0.15.91-2011.11"
+LINARO_VER="2011.11"
+QEMU_VER="0.15.91"
 
 mkdir -p ${DIR}/dl/
 
@@ -33,24 +34,24 @@ echo "ubuntu/debian: sudo apt-get install libglib2.0-dev"
 echo ""
 
 function dl_qemu {
- wget -c --directory-prefix=${DIR}/dl/ http://launchpad.net/qemu-linaro/trunk/2011.11/+download/qemu-linaro-0.15.91-2011.11.tar.gz
+ wget -c --directory-prefix=${DIR}/dl/ http://launchpad.net/qemu-linaro/trunk/${LINARO_VER}/+download/qemu-linaro-${QEMU_VER}-${LINARO_VER}.tar.gz
 }
 
 function extract_qemu {
  rm -rf ${DIR}/qemu-build/ || true
  mkdir -p ${DIR}/qemu-build/
- tar xf ${DIR}/dl/qemu-linaro-0.15.91-2011.11.tar.gz -C ${DIR}/qemu-build/
+ tar xf ${DIR}/dl/qemu-linaro-${QEMU_VER}-${LINARO_VER}.tar.gz -C ${DIR}/qemu-build/
 }
 
 function build_qemu {
- cd ${DIR}/qemu-build/${LINARO}
+ cd ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}
  ./configure --prefix=/usr --target-list=arm-softmmu
  make
  cd ${DIR}
 }
 
 function install_qemu {
- cd ${DIR}/qemu-build/${LINARO}
+ cd ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}
  sudo make install
  cd ${DIR}
 }

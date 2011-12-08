@@ -49,14 +49,8 @@ TEMPDIR=$(mktemp -d)
 #QEMU_VER="0.14.50"
 #DISABLE_WERROR="--disable-werror"
 
-#LINARO_VER="2011.06"
-#SUB_VER="-0"
-#QEMU_VER="0.14.50"
-#DISABLE_WERROR="--disable-werror"
-
-LINARO_VER="2011.04"
-SUB_VER="-1"
-SUB_DATE="${SUB_VER}"
+LINARO_VER="2011.06"
+SUB_VER="-0"
 QEMU_VER="0.14.50"
 DISABLE_WERROR="--disable-werror"
 

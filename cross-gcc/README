@@ -1,0 +1,12 @@
+Fork of: https://launchpad.net/linaro-toolchain-recipes
+
+Dependencies:
+Debian Squeeze:
+sudo apt-get install libmpc-dev git-core curl
+sudo apt-get build-dep gcc-4.4 gdb binutils
+
+Install:
+make
+
+Toolchain:
+GIT_DIR/linaro-toolchain/build/sysroot/${HOME}/opt/gcc-linaro-cross/bin/arm-linux-gnueabi-gcc

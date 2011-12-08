@@ -77,18 +77,10 @@ function extract_qemu {
  tar xf ${DIR}/dl/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}.tar.gz -C ${DIR}/qemu-build/
 }
 
-function build_user {
- mkdir -p  ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}/user-build
- cd ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}/user-build
- ../configure --prefix=/usr --disable-blobs --disable-strip --disable-system --target-list=arm-linux-user
- make
- cd ${DIR}
-}
-
 function build_user_static {
  mkdir -p  ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}/user-static-build
  cd ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}/user-static-build
- ../configure --prefix=/usr --disable-blobs --disable-strip --disable-system --static --target-list=arm-linux-user
+ ../configure --prefix=/usr --sysconfdir=/etc --interp-prefix=/etc/qemu-binfmt/%M --disable-blobs --disable-strip --disable-system --static --target-list=arm-linux-user
  make
  cd ${DIR}
 }
@@ -96,12 +88,39 @@ function build_user_static {
 function install_qemu_static {
  cd ${DIR}/qemu-build/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}/user-static-build
  sudo make install
- sudo ln -s /usr/bin/qemu-arm /usr/bin/qemu-arm-static
+ if [ ! -f /usr/bin/qemu-arm-static ] ; then
+  sudo ln -s /usr/bin/qemu-arm /usr/bin/qemu-arm-static
+ fi
  cd ${DIR}
+}
+
+function hack_install_arm_binfmts {
+
+cat > /tmp/qemu-arm << BINFMTS
+package qemu-user-static
+interpreter /usr/bin/qemu-arm-static
+flags: OC
+offset 0
+magic \x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00
+mask \xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff
+
+BINFMTS
+
+sudo cp /tmp/qemu-arm /usr/share/binfmts/qemu-arm
+
+if [ -f /var/lib/binfmts/qemu-arm ]; then
+ sudo update-binfmts --package qemu-user-static --remove qemu-arm /usr/bin/qemu-arm-static
+fi
+
+if [ -f /usr/share/binfmts/qemu-arm ]; then
+ update-binfmts --import qemu-arm
+fi
+
 }
 
 dl_qemu
 extract_qemu
 build_user_static
 install_qemu_static
+hack_install_arm_binfmts
 

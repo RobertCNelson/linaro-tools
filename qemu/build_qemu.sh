@@ -64,7 +64,7 @@ mkdir -p ${DIR}/dl/
 
 echo ""
 echo "Dependicies:"
-echo "ubuntu/debian: sudo apt-get install libglib2.0-dev"
+echo "ubuntu/debian: sudo apt-get install libglib2.0-dev binfmt-support"
 echo ""
 
 function dl_qemu {
@@ -102,7 +102,7 @@ function hack_install_arm_binfmts {
  fi
 
  if [ -f /usr/share/binfmts/qemu-arm ]; then
-  update-binfmts --import qemu-arm
+  sudo update-binfmts --import qemu-arm
  fi
 }
 

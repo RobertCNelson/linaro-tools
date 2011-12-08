@@ -95,27 +95,15 @@ function install_qemu_static {
 }
 
 function hack_install_arm_binfmts {
+ sudo cp ${DIR}/debian/binfmts/qemu-arm /usr/share/binfmts/qemu-arm
 
-cat > /tmp/qemu-arm << BINFMTS
-package qemu-user-static
-interpreter /usr/bin/qemu-arm-static
-flags: OC
-offset 0
-magic \x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00
-mask \xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff
+ if [ -f /var/lib/binfmts/qemu-arm ]; then
+  sudo update-binfmts --package qemu-user-static --remove qemu-arm /usr/bin/qemu-arm-static
+ fi
 
-BINFMTS
-
-sudo cp /tmp/qemu-arm /usr/share/binfmts/qemu-arm
-
-if [ -f /var/lib/binfmts/qemu-arm ]; then
- sudo update-binfmts --package qemu-user-static --remove qemu-arm /usr/bin/qemu-arm-static
-fi
-
-if [ -f /usr/share/binfmts/qemu-arm ]; then
- update-binfmts --import qemu-arm
-fi
-
+ if [ -f /usr/share/binfmts/qemu-arm ]; then
+  update-binfmts --import qemu-arm
+ fi
 }
 
 dl_qemu

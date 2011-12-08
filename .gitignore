@@ -1,0 +1,4 @@
+cross-gcc/downloads/
+cross-gcc/stamp/
+qemu/dl/
+qemu/qemu-build/

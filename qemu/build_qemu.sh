@@ -27,12 +27,8 @@ unset SUB_DATE
 DIR=$PWD
 TEMPDIR=$(mktemp -d)
 
-#LINARO_VER="2011.11"
-#QEMU_VER="0.15.91"
-
-LINARO_VER="2011.10"
-QEMU_VER="0.15.50"
-DISABLE_WERROR="--disable-werror"
+LINARO_VER="2011.11"
+QEMU_VER="0.15.91"
 
 mkdir -p ${DIR}/dl/
 

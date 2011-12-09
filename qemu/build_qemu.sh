@@ -44,12 +44,7 @@ TEMPDIR=$(mktemp -d)
 #QEMU_VER="0.15.50"
 #DISABLE_WERROR="--disable-werror"
 
-#LINARO_VER="2011.07"
-#SUB_VER="-0"
-#QEMU_VER="0.14.50"
-#DISABLE_WERROR="--disable-werror"
-
-LINARO_VER="2011.06"
+LINARO_VER="2011.07"
 SUB_VER="-0"
 QEMU_VER="0.14.50"
 DISABLE_WERROR="--disable-werror"
@@ -59,6 +54,7 @@ mkdir -p ${DIR}/dl/
 echo ""
 echo "Dependicies:"
 echo "ubuntu/debian: sudo apt-get install libglib2.0-dev binfmt-support"
+echo "ubuntu/debian: sudo apt-get build-dep qemu"
 echo ""
 
 function dl_qemu {

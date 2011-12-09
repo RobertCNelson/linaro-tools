@@ -34,12 +34,7 @@ TEMPDIR=$(mktemp -d)
 #QEMU_VER="0.15.50"
 #DISABLE_WERROR="--disable-werror"
 
-#looking for: vexpress-a9
-#LINARO_VER="2011.09"
-#QEMU_VER="0.15.50"
-#DISABLE_WERROR="--disable-werror"
-
-LINARO_VER="2011.08"
+LINARO_VER="2011.09"
 QEMU_VER="0.15.50"
 DISABLE_WERROR="--disable-werror"
 

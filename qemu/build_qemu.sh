@@ -27,6 +27,11 @@ unset SUB_DATE
 DIR=$PWD
 TEMPDIR=$(mktemp -d)
 
+#LINARO_VER="2011.12"
+#QEMU_VER="1.0"
+
+#Debian Wheezy: gcc version 4.6.2 (Debian 4.6.2-5)
+#Debian Squeeze: gcc version 4.4.5 (Debian 4.4.5-8)
 LINARO_VER="2011.11"
 QEMU_VER="0.15.91"
 

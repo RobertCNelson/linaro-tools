@@ -39,7 +39,7 @@ mkdir -p ${DIR}/dl/
 
 echo ""
 echo "Dependicies:"
-echo "ubuntu/debian: sudo apt-get install libglib2.0-dev binfmt-support"
+echo "ubuntu/debian: sudo apt-get install libglib2.0-dev binfmt-support qemu"
 echo "ubuntu/debian: sudo apt-get build-dep qemu"
 echo ""
 

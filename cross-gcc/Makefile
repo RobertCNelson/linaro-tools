@@ -33,11 +33,17 @@ GCCFLAGS = --with-mode=thumb --with-arch=armv7-a --with-tune=cortex-a9 --with-fl
 # Sources:
 
 # The binutils version to build
-BINUTILSURL = http://archive.ubuntu.com/ubuntu/pool/main/b/binutils/binutils_2.21.0.20110327.orig.tar.gz
+#BINUTILSURL = http://archive.ubuntu.com/ubuntu/pool/main/b/binutils/binutils_2.21.0.20110327.orig.tar.gz
+
+#2012.01
+BINUTILSURL = http://archive.ubuntu.com/ubuntu/pool/main/b/binutils/binutils_2.22.orig.tar.gz
 
 # The Linaro GCC version to build.  Check out
 # https://launchpad.net/gcc-linaro/+download for the latest link.
-GCCURL = http://launchpad.net/gcc-linaro/4.6/4.6-2011.09/+download/gcc-linaro-4.6-2011.09-1.tar.bz2
+#GCCURL = http://launchpad.net/gcc-linaro/4.6/4.6-2011.09/+download/gcc-linaro-4.6-2011.09-1.tar.bz2
+
+#2012.01
+GCCURL = http://launchpad.net/gcc-linaro/4.6/4.6-2012.01/+download/gcc-linaro-4.6-2012.01.tar.bz2
 
 # Sysroot:
 
@@ -45,8 +51,13 @@ GCCURL = http://launchpad.net/gcc-linaro/4.6/4.6-2011.09/+download/gcc-linaro-4.
 MIRROR = http://ports.ubuntu.com/
 
 # Set the pre-built headers and libc to build against.
-LIBC6VER = 2.12.1-0ubuntu6
-LINUXVER = 2.6.35-1022.33
+#LIBC6VER = 2.12.1-0ubuntu6
+#2012.01
+LIBC6VER = 2.13-24ubuntu2
+
+#LINUXVER = 2.6.35-1022.33
+#2012.01
+LINUXVER = 3.0.0-15.25
 
 LIBC6        = pool/main/e/eglibc/libc6_${LIBC6VER}_armel.deb
 LIBC6DEV     = pool/main/e/eglibc/libc6-dev_${LIBC6VER}_armel.deb

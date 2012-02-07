@@ -51,13 +51,13 @@ GCCURL = http://launchpad.net/gcc-linaro/4.6/4.6-2012.01/+download/gcc-linaro-4.
 MIRROR = http://ports.ubuntu.com/
 
 # Set the pre-built headers and libc to build against.
-#LIBC6VER = 2.12.1-0ubuntu6
+LIBC6VER = 2.12.1-0ubuntu6
 #2012.01
-LIBC6VER = 2.13-24ubuntu4
+#LIBC6VER = 2.13-24ubuntu4
 
-#LINUXVER = 2.6.35-1022.33
+LINUXVER = 2.6.35-1022.33
 #2012.01
-LINUXVER = 3.0.0-15.26
+#LINUXVER = 3.0.0-15.26
 
 LIBC6        = pool/main/e/eglibc/libc6_${LIBC6VER}_armel.deb
 LIBC6DEV     = pool/main/e/eglibc/libc6-dev_${LIBC6VER}_armel.deb

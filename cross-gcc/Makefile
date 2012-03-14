@@ -43,19 +43,27 @@ BINUTILSURL = http://archive.ubuntu.com/ubuntu/pool/main/b/binutils/binutils_2.2
 #GCCURL = http://launchpad.net/gcc-linaro/4.6/4.6-2011.09/+download/gcc-linaro-4.6-2011.09-1.tar.bz2
 
 #2012.01
-GCCURL = http://launchpad.net/gcc-linaro/4.6/4.6-2012.01/+download/gcc-linaro-4.6-2012.01.tar.bz2
+#GCCURL = http://launchpad.net/gcc-linaro/4.6/4.6-2012.01/+download/gcc-linaro-4.6-2012.01.tar.bz2
+
+#Mar 12, 2012 update
+GCCURL = https://launchpad.net/gcc-linaro/4.6/4.6-2012.02/+download/gcc-linaro-4.6-2012.02.tar.bz2
 
 # Sysroot:
-
 # Where to fetch the packages from
 MIRROR = http://ports.ubuntu.com/
 
 # Set the pre-built headers and libc to build against.
-LIBC6VER = 2.12.1-0ubuntu6
+#LIBC6VER = 2.12.1-0ubuntu6
+#Mar 12, 2012 update
+LIBC6VER = 2.12.1-0ubuntu10.4
+
 #2012.01
 #LIBC6VER = 2.13-24ubuntu4
 
-LINUXVER = 2.6.35-1022.33
+#LINUXVER = 2.6.35-1022.33
+#Mar 12, 2012 update
+LINUXVER = 2.6.35-1032.67
+
 #2012.01
 #LINUXVER = 3.0.0-15.26
 

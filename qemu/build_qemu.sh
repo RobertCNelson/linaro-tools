@@ -36,12 +36,6 @@ QEMU_VER="1.0"
 
 mkdir -p ${DIR}/dl/
 
-echo ""
-echo "Dependicies:"
-echo "ubuntu/debian: sudo apt-get install libglib2.0-dev binfmt-support qemu"
-echo "ubuntu/debian: sudo apt-get build-dep qemu"
-echo ""
-
 function dl_qemu {
  wget -c --directory-prefix=${DIR}/dl/ http://launchpad.net/qemu-linaro/trunk/${LINARO_VER}${SUB_DATE}/+download/qemu-linaro-${QEMU_VER}-${LINARO_VER}${SUB_VER}.tar.gz
 }

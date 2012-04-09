@@ -46,7 +46,10 @@ BINUTILSURL = http://archive.ubuntu.com/ubuntu/pool/main/b/binutils/binutils_2.2
 #GCCURL = http://launchpad.net/gcc-linaro/4.6/4.6-2012.01/+download/gcc-linaro-4.6-2012.01.tar.bz2
 
 #Mar 12, 2012 update
-GCCURL = https://launchpad.net/gcc-linaro/4.6/4.6-2012.02/+download/gcc-linaro-4.6-2012.02.tar.bz2
+#GCCURL = https://launchpad.net/gcc-linaro/4.6/4.6-2012.02/+download/gcc-linaro-4.6-2012.02.tar.bz2
+
+#April 9th, 2012 update
+GCCURL = https://launchpad.net/gcc-linaro/4.6/4.6-2012.03/+download/gcc-linaro-4.6-2012.03.tar.bz2
 
 # Sysroot:
 # Where to fetch the packages from
@@ -62,10 +65,13 @@ LIBC6VER = 2.12.1-0ubuntu10.4
 
 #LINUXVER = 2.6.35-1022.33
 #Mar 12, 2012 update
-LINUXVER = 2.6.35-1032.67
+LINUXVER = 2.6.35-1032.68
 
 #2012.01
 #LINUXVER = 3.0.0-15.26
+
+#http://ports.ubuntu.com/pool/main/e/eglibc/
+#http://ports.ubuntu.com/pool/main/l/linux/
 
 LIBC6        = pool/main/e/eglibc/libc6_${LIBC6VER}_armel.deb
 LIBC6DEV     = pool/main/e/eglibc/libc6-dev_${LIBC6VER}_armel.deb

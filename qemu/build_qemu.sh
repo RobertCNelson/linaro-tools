@@ -31,8 +31,17 @@ TEMPDIR=$(mktemp -d)
 #qemu: Unsupported syscall: 231
 #qemu: Unsupported syscall: 228 (a lot more)
 
-LINARO_VER="2011.12"
-QEMU_VER="1.0"
+#LINARO_VER="2011.12"
+#QEMU_VER="1.0"
+#Setting up libgtk2.0-0 (2.24.10-0ubuntu6) ...
+#qemu: uncaught target signal 11 (Segmentation fault) - core dumped
+#Segmentation fault
+
+LINARO_VER="2012.01"
+QEMU_VER="1.0.50"
+#Setting up libgtk2.0-0 (2.24.10-0ubuntu6) ...
+#qemu: uncaught target signal 11 (Segmentation fault) - core dumped
+#Segmentation fault
 
 mkdir -p ${DIR}/dl/
 

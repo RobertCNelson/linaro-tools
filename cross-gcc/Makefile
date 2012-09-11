@@ -52,7 +52,10 @@ BINUTILSURL = http://archive.ubuntu.com/ubuntu/pool/main/b/binutils/binutils_2.2
 #GCCURL = https://launchpad.net/gcc-linaro/4.6/4.6-2012.03/+download/gcc-linaro-4.6-2012.03.tar.bz2
 
 #May 29th, 2012 update
-GCCURL = https://launchpad.net/gcc-linaro/4.6/4.6-2012.05/+download/gcc-linaro-4.6-2012.05.tar.bz2
+#GCCURL = https://launchpad.net/gcc-linaro/4.6/4.6-2012.05/+download/gcc-linaro-4.6-2012.05.tar.bz2
+
+#Sep 11th, 2012 update (last 4.6)
+GCCURL = https://launchpad.net/gcc-linaro/4.6/4.6-2012.08/+download/gcc-linaro-4.6-2012.08.tar.bz2
 
 # Sysroot:
 # Where to fetch the packages from
